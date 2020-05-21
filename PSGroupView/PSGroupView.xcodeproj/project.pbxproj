@@ -15,6 +15,10 @@
 		8C0ECEB52473B11A00DAD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C0ECEB42473B11A00DAD0D9 /* Assets.xcassets */; };
 		8C0ECEB82473B11A00DAD0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0ECEB62473B11A00DAD0D9 /* LaunchScreen.storyboard */; };
 		8C0ECEC12473B9B100DAD0D9 /* PSGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0ECEC02473B9B100DAD0D9 /* PSGroupItem.swift */; };
+		8C73B452247683E200D7185C /* PSDepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C73B451247683E200D7185C /* PSDepModel.swift */; };
+		8C73B4542476AAEF00D7185C /* PSMemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C73B4532476AAEF00D7185C /* PSMemberModel.swift */; };
+		8CF1EC83247520E80084450D /* PSGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1EC82247520E80084450D /* PSGroupView.swift */; };
+		8CF1EC89247527150084450D /* PSHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1EC88247527150084450D /* PSHeaderModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		8C0ECEB72473B11A00DAD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C0ECEB92473B11A00DAD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C0ECEC02473B9B100DAD0D9 /* PSGroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSGroupItem.swift; sourceTree = "<group>"; };
+		8C73B451247683E200D7185C /* PSDepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSDepModel.swift; sourceTree = "<group>"; };
+		8C73B4532476AAEF00D7185C /* PSMemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSMemberModel.swift; sourceTree = "<group>"; };
+		8CF1EC82247520E80084450D /* PSGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSGroupView.swift; sourceTree = "<group>"; };
+		8CF1EC88247527150084450D /* PSHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSHeaderModel.swift; sourceTree = "<group>"; };
 		A0CDF916609D05724E361AE6 /* Pods-PSGroupView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSGroupView.release.xcconfig"; path = "Target Support Files/Pods-PSGroupView/Pods-PSGroupView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +89,9 @@
 				8C0ECEB42473B11A00DAD0D9 /* Assets.xcassets */,
 				8C0ECEB62473B11A00DAD0D9 /* LaunchScreen.storyboard */,
 				8C0ECEB92473B11A00DAD0D9 /* Info.plist */,
+				8CF1EC88247527150084450D /* PSHeaderModel.swift */,
+				8C73B451247683E200D7185C /* PSDepModel.swift */,
+				8C73B4532476AAEF00D7185C /* PSMemberModel.swift */,
 			);
 			path = PSGroupView;
 			sourceTree = "<group>";
@@ -89,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				8C0ECEC02473B9B100DAD0D9 /* PSGroupItem.swift */,
+				8CF1EC82247520E80084450D /* PSGroupView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -130,6 +142,7 @@
 		8C0ECEA02473B11800DAD0D9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PS;
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = swx;
@@ -217,10 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C73B452247683E200D7185C /* PSDepModel.swift in Sources */,
 				8C0ECEB02473B11800DAD0D9 /* ViewController.swift in Sources */,
+				8C73B4542476AAEF00D7185C /* PSMemberModel.swift in Sources */,
 				8C0ECEAC2473B11800DAD0D9 /* AppDelegate.swift in Sources */,
 				8C0ECEAE2473B11800DAD0D9 /* SceneDelegate.swift in Sources */,
 				8C0ECEC12473B9B100DAD0D9 /* PSGroupItem.swift in Sources */,
+				8CF1EC89247527150084450D /* PSHeaderModel.swift in Sources */,
+				8CF1EC83247520E80084450D /* PSGroupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

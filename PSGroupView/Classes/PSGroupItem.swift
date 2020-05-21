@@ -10,17 +10,23 @@ import Foundation
 import UIKit
 
 /// 分组 item 协议
-protocol PSGroupItem {
+protocol PSGroupItem : AnyObject {
     /// 设置某一列宽度的回调
-    typealias columnWidthBlock = (_ column: Int) -> (Float)
+    var columnWidthBlock : ((_ column: Int) -> (Double))? { get set }
     /// 点击事件回调
-    typealias touchedBlock = (_ obj: PSGroupItem?) -> (Void)
-    /// 上一级 item
+    var touchedBlock : ((_ obj: PSGroupItem?) -> (Void))? { get set }
+    /**
+     * 读取上一级 item
+     *
+     * ```
+     * 实现时需要用 weak 修饰，否则会造成「循环引用」
+     * ```
+     */
     var parent: PSGroupItem? { get set }
     /// 每一列的内容
-    func textValues() -> [String?]
+    func textValues() -> [String]?
     /// 下级内容
-    func items() -> [PSGroupItem?]
+    func items() -> [PSGroupItem]?
     /// 当前所处层级
     func digitalDepth() -> Int
     /// 获取视图
@@ -34,10 +40,6 @@ protocol PSGroupItem {
     /// 是否是最底层 item
     func isBottomLevelItem() -> Bool
 }
-
-//func ==<T: PSGroupItem>(lhs: T, rhs: T) -> Bool {
-//    return lhs.digitalDepth() == rhs.digitalDepth()
-//}
 
 // MARK: - 默认实现
 extension PSGroupItem {

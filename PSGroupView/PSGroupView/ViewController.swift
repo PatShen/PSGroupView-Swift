@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import HandyJSON
-import SwiftyJSON
 
 class ViewController: UIViewController {
     lazy var mdlHeader: PSHeaderModel = {

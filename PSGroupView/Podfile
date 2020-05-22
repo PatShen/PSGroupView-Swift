@@ -7,7 +7,7 @@ target 'PSGroupView' do
 
   # Pods for PSGroupView
   pod 'HandyJSON'
-  pod 'SwiftyJSON'
+  #pod 'SwiftyJSON'
   pod 'SnapKit', '~> 5.0.0'
 
 

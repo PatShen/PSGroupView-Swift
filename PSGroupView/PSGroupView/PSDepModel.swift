@@ -24,7 +24,7 @@ class PSDepModel: NSObject, PSGroupItem, HandyJSON {
     fileprivate var name: String = ""
     fileprivate var values: [String] = []
     fileprivate var subItems: [PSDepModel] = []
-    fileprivate var members: [PSGroupItem] = []
+    fileprivate var members: [PSMemberModel] = []
     
     fileprivate lazy var viewItems: PSGroupView = {
         let view = PSGroupView.viewForDepartment()
@@ -98,6 +98,38 @@ class PSDepModel: NSObject, PSGroupItem, HandyJSON {
     // MARK: HandyJSON
     
     func didFinishMapping() {
+        for sub in self.subItems {
+            sub.parent = self
+            sub.columnWidthBlock = { [weak self] (column) -> (Double) in
+                var width = 0.0
+                if let block = self?.columnWidthBlock {
+                    width = block(column)
+                }
+                return width
+            }
+            sub.touchedBlock = { [weak self] (item) -> (Void) in
+                self?.parent?.reloadChildren()
+                if let block = self?.touchedBlock {
+                    block(item)
+                }
+            }
+        }
         
+        for sub in self.members {
+            sub.parent = self
+            sub.columnWidthBlock = { [weak self] (column) -> (Double) in
+                var width = 0.0
+                if let block = self?.columnWidthBlock {
+                    width = block(column)
+                }
+                return width
+            }
+            sub.touchedBlock = { [weak self] (item) -> (Void) in
+                self?.parent?.reloadChildren()
+                if let block = self?.touchedBlock {
+                    block(item)
+                }
+            }
+        }
     }
 }

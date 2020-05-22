@@ -44,10 +44,13 @@ class PSGroupView: UIView, UITableViewDataSource, UITableViewDelegate {
         if (self.item?.items()?.count)! > 0 {
             if self.isExpand! {
                 // 这行代码为了解决 content size 计算不准确的问题
-//                tbl.snp.updateConstraints { (make) in
-//                    make.height.equalTo(UIScreen.main.bounds.size.height)
-//                }
-//                tbl.layoutIfNeeded()
+                tbl.snp.remakeConstraints { (make) in
+                    make.top.equalTo(self.viewContent.snp.bottom);
+                    make.leading.trailing.equalToSuperview();
+                    make.bottom.equalToSuperview().priority(.high);
+                    make.height.equalTo(UIScreen.main.bounds.size.height)
+                }
+                tbl.layoutIfNeeded()
                 tbl.isHidden = false
                 tbl.reloadData()
                 tbl.layoutIfNeeded()
@@ -130,6 +133,10 @@ class PSGroupView: UIView, UITableViewDataSource, UITableViewDelegate {
             make.top.leading.trailing.equalTo(self)
             make.bottom.equalTo(self.snp.bottom).priority(.high)
         }
+        
+        self.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(didTappedSelf))
+        self.addGestureRecognizer(tap)
     }
     
     fileprivate func createLabel() -> UILabel! {
@@ -235,6 +242,12 @@ class PSGroupView: UIView, UITableViewDataSource, UITableViewDelegate {
             make.leading.trailing.equalToSuperview();
             make.bottom.equalToSuperview();
             make.height.equalTo(0);
+        }
+    }
+    
+    @objc fileprivate func didTappedSelf() -> Void {
+        if let block = self.touchedBlock {
+            block(self.item)
         }
     }
     
